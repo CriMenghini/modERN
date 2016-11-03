@@ -1,4 +1,5 @@
-   <img src="Images/logo_merge.png-" width="150">    
+![alt text](Images/logo_merge.png "Logo Title Text 1")
+
 
 # modERN : mod-EPFL Researchers Network
 
