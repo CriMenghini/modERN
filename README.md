@@ -1,6 +1,4 @@
-
-![alt text](Images/ADA-logo.png "Logo Title Text 1")
-
+<img src="Images/ADA-logo.png" width="200"> <img src="Images/ADA-logo.png" width="200"> 
 
 # modERN : mod-EPFL Researchers Network
 
