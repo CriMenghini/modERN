@@ -1,4 +1,4 @@
-   <img src="Images/ADA-logo.png" width="150">     <img src="Images/Unknown-5" width="200" > 
+   <img src="Images/logo_merge.png-" width="150">    
 
 # modERN : mod-EPFL Researchers Network
 
