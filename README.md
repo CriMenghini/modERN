@@ -8,3 +8,11 @@
 Stay tuned, the best is coming!
 
 But, what is [*mod*](https://en.wikipedia.org/wiki/Mod_(subculture)) exactly?
+
+
+# Abstract
+# Data description
+# Feasibility and Risks
+# Deliverables
+# Timeplan
+
