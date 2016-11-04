@@ -9,6 +9,8 @@ Stay tuned, the best is coming!
 
 But, what is [*mod*](https://en.wikipedia.org/wiki/Mod_(subculture)) exactly?
 
+      "the mass media often used the term mod in a wider sense to describe anything that was believed to be popular, fashionable or modern."
+
 
 ## Abstract
 
