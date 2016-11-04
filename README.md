@@ -11,6 +11,15 @@ But, what is [*mod*](https://en.wikipedia.org/wiki/Mod_(subculture)) exactly?
 
 
 ## Abstract
+
+We present *modERN*, both an analysis of the research community of the EPFL, a university recognised as an excellence in terms of research, 
+and a visual exploration of the *white hot* topics which the research is addressed to. *modERN* focuses its attention in discovering which 
+departments collaborate and share information, how the interactions between groups change over time and the influence of one on the other. 
+Using different data sources *modERN* estimates the potential of researches carried out at the EPFL, 
+whether they are acknowledged by the scientific community, and guesses the researchers that will work on certain topics in the future.
+
+   
+ 
 ## Data description
 ## Feasibility and Risks
 ## Deliverables
