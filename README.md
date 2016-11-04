@@ -23,7 +23,7 @@ and a visual exploration of the *white hot* topics which the research is address
 departments collaborate and share information, how the interactions between groups change over time and the influence of one on the other. 
 Using different data sources *modERN* estimates the potential of researches carried out at the EPFL, 
 whether they are acknowledged by the scientific community, and guesses the researchers that will work on certain topics in the future. 
-*modERN* represents the network as a graph whose nodes are researchers and edges represent collaboration between researchers.
+*modERN* represents the network as a graph whose nodes are researchers and edges represent collaboration between them.
 
 ## Data description
 
@@ -46,7 +46,7 @@ We use two source of data:
  
 * [*Google Scholar*](https://scholar.google.ch/citations?view_op=view_org&hl=it&org=16539297749990713900): the information retrieved from 
 this platform will be on the top of those collected from *infoscience*. We do not use *Google Scholar* as starting point since not all
-researchers necessary has an account.
+researchers necessary have an account.
 
 Additional data about researchers:
  - University
@@ -86,5 +86,5 @@ The work ends up with as follows:
 
 1. Collect data
 2. Analysis
-3. Visualization
+3. Visualisation
 
