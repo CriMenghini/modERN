@@ -1,0 +1,34 @@
+## Prepare data to build the basic graph (nodes, edges). 
+
+_Main Idea_: create an inverted index for Researchers and papers. 
+
+1. Create a `.csv` file that matches the title of a work to the paper ID. The file stores what follows:
+        
+                                _Paper ID_            _Title_
+                                     1                Network
+                                     .                  .
+                                     .                  .
+                                     n                Bridge
+                                     
+2. Create a `.csv` file that matches the name of a researcher to the researcher ID. The file stores what follows:
+
+                                 _Author ID_         _Author_
+                                     1                John
+                                     .                  .
+                                     .                  .
+                                     n                Rose
+                                     
+The two steps above are useful to make the inverted index less heavy.
+
+3. Create the inverted index:
+
+                                _Author ID_             _List papers_
+                                    1                   1,3,4,5,7,9,19
+                                    
+                                    
+                                    
+Once we have the inverted index we can built the first graph. In particular:
+- To each author will correspond a node
+- Two nodes are linked whether the published together a paper. In particular, we will compute the intersections between the lists.
+If the *intersection* is not empty, we will draw the edge whose *weigth* will be the `len` of the intersection: the number of
+common pubblications of the two researchers.
