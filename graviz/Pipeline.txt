@@ -1,0 +1,15 @@
+1. Load graph to NetwrokX
+2. Calculate stats (degree, betweenness and eigenvector centrality) and save values as node attributes in the graph
+3. Reduce number of nodes using eigendecomposition od adjacency matrix
+4. Community detection using Louvain's algorithm
+
+5. Export graph from Networkx in JSON format with nodes with attributes and edges
+6. Visualize with D3.
+
+5'. Export graph from Networkx in dot format: networkx.write_dot(G, 'file.dot')
+6'. Import file.dot into Gephi and use the force atlas 2 layout algorithm. Prevent overlapping nodes. Adjust styling
+7'. Export a GEXF file from Gephi
+8'. Visualize with sigmajs on website
+
+Scale font size using betweenness
+
