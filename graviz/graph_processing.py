@@ -46,25 +46,27 @@ def add_degree_centrality(graph):
 	"""
 		Adds degree centrality measure to each node in the `graph`.
 
-		Returns graph with degree centrality attribute added to the nodes.
+		Returns graph with degree centrality attribute added to the nodes
+		and those nodes.
 	"""
-	
+
 	nodes = nx.degree_centrality(graph)
 	nx.set_node_attributes(graph, 'degree_centrality', nodes)
-	
-	return graph
+
+	return graph, nodes
 
 def add_eigenvector_centrality(graph):
 	"""
 		Adds eigenvector centrality measure to each node in the `graph`.
 
-		Returns graph with eigenvector centrality attribute added to the nodes.
+		Returns graph with eigenvector centrality attribute added to the nodes
+		and those nodes.
 	"""
 
 	nodes = nx.eigenvector_centrality(graph)
 	nx.set_node_attributes(graph, 'eigenvector_centrality', nodes)
-	
-	return graph
+
+	return graph, nodes
 
 # Code reference: https://networkx.github.io/documentation/development/examples/advanced/parallel_betweenness.html
 
@@ -87,7 +89,7 @@ def _betmap(graph_normalized_weight_sources_tuple):
 		Pool for multiprocess only accepts functions with one argument. Uses
 		a tuple as its only argument and then unpack it when it's send it to
 		`betweenness_centrality_source`.
-		
+
 		Returns betweenness centrality measure for a subgraph.
 	"""
 
@@ -117,13 +119,14 @@ def add_betweenness_centrality(graph, processors):
 	"""
 		Adds betweenness centrality measure to each node in the `graph`.
 
-		Returns graph with betweenness centrality attribute added to the nodes.
+		Returns graph with betweenness centrality attribute added to the nodes
+		and those nodes.
 	"""
 
 	nodes = parallel_betweenness_centrality(graph, processors)
 	nx.set_node_attributes(graph, 'betweenness_centrality', nodes)
 
-	return graph
+	return graph, nodes
 
 def add_centrality_stats(graph, processors=8):
 	"""
@@ -131,11 +134,32 @@ def add_centrality_stats(graph, processors=8):
 		node in the `graph` using using `processors` processors in parallel
 		during computation.
 
-		Returns graph with centrality measures attributes added to the nodes.
+		Returns graph with centrality measures attributes added to the nodes
+		and nodes with different measures.
 	"""
 
-	graph = add_degree_centrality(graph)
-	graph = add_eigenvector_centrality(graph)
-	graph = add_betweenness_centrality(graph, processors)
+	graph, degree_nodes = add_degree_centrality(graph)
+	graph, eigenvector_nodes = add_eigenvector_centrality(graph)
+	graph, betweenness_nodes = add_betweenness_centrality(graph, processors)
 
+	return graph, degree_nodes, eigenvector_nodes, betweenness_nodes
+
+def reduce_graph_size(graph, eigenvector_nodes, percentage=0.01, threshold=100, method='threshold'):
+	"""
+		Leaves nodes that have eigenvalues they correspond to bigger or equal to
+		eigenvalues in `percentage` of highest eigenvalues from `graph`.
+
+		Returns trimmed graph.
+	"""
+
+	x = sorted([(v, k) for (k,v) in eigenvector_nodes.items()], reverse=True)
+	eigenvector_nodes = [p[0] for p in x]
+	if method == 'percentage':
+		right_bound = int(percentage*len(eigenvector_nodes))
+	elif method == 'threshold':
+		right_bound = threshold
+	else:
+		raise Exception()
+	print("Number of nodes: " + str(right_bound))
+	graph.remove_nodes_from(eigenvector_nodes[right_bound:])
 	return graph
