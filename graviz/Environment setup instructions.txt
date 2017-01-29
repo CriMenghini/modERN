@@ -2,3 +2,8 @@ INSTALLATION
 
 1. In case you don't have NetworkX installed with Anaconda
 $ pip install networkx
+
+2. Install community detection
+$ hg clone https://bitbucket.org/taynaud/python-louvain
+$ cd python-louvain/
+$ python setup.py install

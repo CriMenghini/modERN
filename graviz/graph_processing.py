@@ -147,19 +147,19 @@ def add_centrality_stats(graph, processors=8):
 def reduce_graph_size(graph, eigenvector_nodes, percentage=0.01, threshold=100, method='threshold'):
 	"""
 		Leaves nodes that have eigenvalues they correspond to bigger or equal to
-		eigenvalues in `percentage` of highest eigenvalues from `graph`.
+		eigenvalues in `percentage` of highest eigenvalues from `graph` or
+		simply `threshold` highest depending on `method` used.
 
 		Returns trimmed graph.
 	"""
 
 	x = sorted([(v, k) for (k,v) in eigenvector_nodes.items()], reverse=True)
-	eigenvector_nodes = [p[0] for p in x]
+	eigenvector_nodes = [p[1] for p in x]
 	if method == 'percentage':
 		right_bound = int(percentage*len(eigenvector_nodes))
 	elif method == 'threshold':
 		right_bound = threshold
 	else:
 		raise Exception()
-	print("Number of nodes: " + str(right_bound))
 	graph.remove_nodes_from(eigenvector_nodes[right_bound:])
 	return graph
