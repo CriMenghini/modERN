@@ -25,3 +25,9 @@ def plot_measures(sorted_values, title, xlabel, ylabel, name_file):
     plt.ylabel(ylabel)
     plt.savefig(name_file + '.png', dpi=100)
     plt.show()
+    
+    
+def getKey(item):
+    """ This function, given a tuple, hust return the second element."""
+    
+    return item[1]

@@ -75,13 +75,12 @@ Scraping *Google Scholar* may be tricky since there are no clear rules related t
 
 The structure of the provided files follows the path of the poster presented at [Applied Machine Learning Days](https://www.appliedmldays.org) for the [ADA](http://ada.epfl.ch) EPFL course taught by Michele Catasta. 
 
-![alt text](Images/poster.JPG "Poster")
+![alt text](Images/poster.jpg "Poster")
 
  
  1. [Data Acquisition] __PUT LINK__
- 2. [School Productivity Growth] __PUT LINK__
+ 2. [Build Graph and School Productivity Growth] __PUT LINK__
  3. [Social Graph] __PUT LINK__
  4. [EPFL map] __PUT LINK__
- 5. [Internationality] __PUT LINK__
  6. [Topics] __PUT LINK__
 
