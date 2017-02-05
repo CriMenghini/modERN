@@ -2,6 +2,11 @@
 # -*- coding: utf-8 -*-
 
 def get_keywords_by_years(data, left, right):
+    """
+    	Retrives the list of keywords used in the publications from `data`
+    	dataset between the years `left` and `right`.
+    """
+
     keywords = []
     for key in data.keys():
         try:
@@ -14,9 +19,17 @@ def get_keywords_by_years(data, left, right):
             keywords += data[key]['Keywords']
         except:
             continue
+
     return keywords
 
 def get_keywords_by_school(data, lab_school, school):
+    """
+    	Retrives the list of keywords used in the publications from `data`
+    	dataset published by `school`.
+    	In order to determine the school from the `data` dataset it needs to use
+    	`lab_school` dictionary.
+    """
+
     keywords = []
     for key in data.keys():
         try:
@@ -29,4 +42,9 @@ def get_keywords_by_school(data, lab_school, school):
             keywords += data[key]['Keywords']
         except:
             continue
+
     return keywords
+
+if __name__ == "__main__":
+    print('This is wordclouds library. Meant to be imported rather than\
+    run directly')
