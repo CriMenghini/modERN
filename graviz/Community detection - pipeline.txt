@@ -1,0 +1,9 @@
+1. Load graph to NetwrokX
+2. Calculate stats (degree, betweenness and eigenvector centrality) and save values as node attributes in the graph
+3. Reduce number of nodes using eigendecomposition od adjacency matrix
+4. Community detection using Louvain's algorithm
+5. Export graph from NetworkX in JSON format with nodes with attributes and edges
+6. Visualize graph.
+
+(optional) 7. Scale font size using betweenness
+
