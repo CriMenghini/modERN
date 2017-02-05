@@ -78,9 +78,6 @@ The structure of the provided files follows the path of the poster presented at 
 ![alt text](Images/poster.jpg "Poster")
 
  
- 1. [Data Acquisition] __PUT LINK__
- 2. [Build Graph and School Productivity Growth] __PUT LINK__
- 3. [Social Graph] __PUT LINK__
- 4. [EPFL map] __PUT LINK__
- 6. [Topics] __PUT LINK__
+ 1. modERN:  Notebook that contains the description of the work and results.
+ 2. `.py` files: correspond to used modules. They are recalled when used.
 

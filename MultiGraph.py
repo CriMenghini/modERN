@@ -327,74 +327,25 @@ def lab_author_year(dict_lab_years_pub, data_cut):
             
     return dict_author_year
 
-#dictionary = {}
-#dictionary_occ = {}
-#for i in list(dict_coautorship_papers.keys()):
-#    dictionary[i] = {}
-#    dictionary_occ[i] = {}
-#    for j in list(dict_coautorship_papers[i].keys()):
-#        dates = defaultdict(list)
-#        for l in range(len(dict_coautorship_papers[i][j])):
-#            try:
-#                dates[data[sorted(dict_coautorship_papers[i][j])[l]]['Publication date']] += [sorted(dict_coautorship_papers[i][j])[l]]
-#            except:
-#                continue
-#        if len(dates) != 0:
-#            dictionary[i][j] = dates
-#            dictionary_occurences = {}
-#            for k,m in dictionary[i][j].items():
-#                dictionary_occurences[k] = len(m)
-#            dictionary_occ[i][j] = dictionary_occurences
-#            
-            
-## Define an epty set of edges
-#edges = set()
-#
-## For each author
-#for key in list(dict_authors_set_epfl.keys()):       
-#    # If the list of co-authors is not empty
-#    if len(dict_authors_set_epfl[key]) != 0:
-#        # Create sorted tuples between the author and his coauthors
-#        new_edges = [tuple(sorted((dictionary_a_id_epfl[key], dictionary_a_id_epfl[co]))) for co in dict_authors_set_epfl[key]]
-#
-#        # Update the set in order to not have the double arches
-#        edges.update(new_edges)
-#        
-#        
-#G_epfl = nx.MultiGraph()
-#G_epfl.add_nodes_from(list(dictionary_id_a_epfl.keys()))
-#G_epfl.add_edges_from(list(edges_epfl))
-#
-#new_edges = []
-#to_remove = []
-#for i,j in list(edges_epfl):
-#    
-#    try:    
-#        for k in list(dictionary_occ[dictionary_id_a_epfl[i]][dictionary_id_a_epfl[j]].keys()):
-#        #print (list(dictionary_occ[dictionary_id_a_epfl[i]][dictionary_id_a_epfl[j]].keys()))
-#        #print (i,j)
-#            new_edges += [(i, j, dict(year = k))]
-#            to_remove += [(i,j)]
-#    except:
-#        continue
-#    
-#G_epfl.add_edges_from(new_edges)
-##G_epfl.remove_edges_from(set(to_remove))
-#
-#
-#for i,j in G_epfl.edges():
-#    for k in G_epfl[i][j]:
-#        #print (k)
-#        if k == 0:
-#            G_epfl[i][j][k]['weight'] = dict_numb_coll_epfl[dictionary_id_a_epfl[i]][dictionary_id_a_epfl[j]]
-#        else:
-#            #print (G_epfl[i][j][k]['year'])
-#            G_epfl[i][j][k]['weight'] = dictionary_occ[dictionary_id_a_epfl[i]][dictionary_id_a_epfl[j]][G_epfl[i][j][k]['year']]
-#    
-#    
-#for i,j in G.edges():
-#    for k in G[i]:
-#        #print (k)
-#        
-#        G[i][j]['weight'] = dict_numb_coll_epfl[dictionary_id_a_epfl[i]][dictionary_id_a_epfl[j]]
-#            
+
+def getKey_0(item):
+    return item[0]
+
+def get_sorted_array(dict_school_pub):
+    
+    tuples_pr = dict_school_pub.items()
+    sort = sorted(tuples_pr, key = getKey_0)
+    x = [int(i[0]) for i in sort[:-1]]
+    y = [i[1] for i in sort[:-1]]
+    
+    return y,x
+
+def get_sorted_array_scaled(dict_school_pub, school, total_year):
+    
+    tuples_pr = dict_school_pub[school].items()
+    sort = sorted(tuples_pr, key = getKey_0)
+    x = [int(i[0]) for i in sort[:-1]]
+    y = [i[1]/total_year[i[0]] for i in sort[:-1]]
+    
+    return y,x
+
